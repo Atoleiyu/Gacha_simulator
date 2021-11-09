@@ -30,6 +30,7 @@ R   = 79%
 */
 
 let gachas = [];
+let type;
 
 const Gacha = (num) => {
   // コンソールログをリセット
@@ -37,10 +38,31 @@ const Gacha = (num) => {
 
   console.log("--- " + (gachaCount + 1) + 0 + "連目 ---");
 
-  if (gachaCount > 0) {
-    for (i = 1; i < 11; i++) {
+
+  if (gachaCount > 0 && num === 10) {
+    if (type === "ten") {
+      for (i = 1; i < 11; i++) {
+        document.getElementById("item-" + i).remove();
+      }
+    }else if (type === "single") {
       document.getElementById("item-" + i).remove();
     }
+  }else if (gachaCount > 0 && num === 1) {
+    if (type === "single") {
+      document.getElementById("item-" + i).remove();
+      console.log(54)
+    }else if (type === "ten") {
+      for (i = 1; i < 11; i++) {
+        document.getElementById("item-" + i).remove();
+      }
+      console.log(58);
+    }
+  }
+
+  if (num === 1) {
+    type = "single";
+  }else if (num === 10) {
+    type = "ten"
   }
 
   createDiv(num);
@@ -91,5 +113,6 @@ tenBtn.onclick = () => {
 
 singleBtn.onclick = () => {
   Gacha(1);
+  console.log(gachas);
   gachas = [];
 }
