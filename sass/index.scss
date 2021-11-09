@@ -1,0 +1,49 @@
+$boLineSize: 2px;
+
+body {
+  height: 100vh;
+  // background-color: rgb(85, 128, 113);
+  display: flex;
+  align-items: center;
+
+  .container {
+    height: 40vh;
+    background-color: rgb(218, 218, 218);
+
+    #row-1 {
+      height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+
+      .item {
+        height: 60%;
+        width: 8.3%;
+        background-color: cadetblue;
+        border: $boLineSize solid gray;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+      }
+    }
+
+    #row-2 {
+      height: 10vh;
+      background-color: lightslategray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+
+      .btn {
+        width: 15%;
+        height: 50%;
+      }
+    }
+  }
+}
