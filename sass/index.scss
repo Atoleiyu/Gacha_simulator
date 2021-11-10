@@ -5,10 +5,20 @@ body {
   // background-color: rgb(85, 128, 113);
   display: flex;
   align-items: center;
+  // 縦方向のバウンスを無効
+  overscroll-behavior-y: none;
 
   .container {
     height: 40vh;
     background-color: rgb(218, 218, 218);
+
+    #row-0 {
+      #counter {
+        background-color: white;
+        border:3px solid rgb(218, 218, 218);
+        border-radius: 10px;
+      }
+    }
 
     #row-1 {
       height: 30vh;
@@ -43,6 +53,21 @@ body {
       .btn {
         width: 15%;
         height: 50%;
+      }
+    }
+
+    #row-3 {
+      .counter {
+        border: $boLineSize solid gray;
+        border-top: none;
+      }
+
+      .probability {
+        border-bottom: $boLineSize solid gray;
+      }
+
+      #ssr-prob {
+        border-right: $boLineSize solid gray;
       }
     }
   }

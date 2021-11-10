@@ -6,11 +6,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overscroll-behavior-y: none;
 }
 
 body .container {
   height: 40vh;
   background-color: #dadada;
+}
+
+body .container #row-0 #counter {
+  background-color: white;
+  border: 3px solid #dadada;
+  border-radius: 10px;
 }
 
 body .container #row-1 {
@@ -65,5 +72,18 @@ body .container #row-2 {
 body .container #row-2 .btn {
   width: 15%;
   height: 50%;
+}
+
+body .container #row-3 .counter {
+  border: 2px solid gray;
+  border-top: none;
+}
+
+body .container #row-3 .probability {
+  border-bottom: 2px solid gray;
+}
+
+body .container #row-3 #ssr-prob {
+  border-right: 2px solid gray;
 }
 /*# sourceMappingURL=index.css.map */

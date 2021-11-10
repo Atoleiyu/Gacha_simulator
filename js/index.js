@@ -1,9 +1,23 @@
+const getCounter = document.getElementById("counter");
+
 const getRow1 = document.getElementById("row-1");
+
+const getRcount = document.getElementById("r-count"),
+      getSRcount = document.getElementById("sr-count"),
+      getSSRcount = document.getElementById("ssr-count");
+
+const getRprob = document.getElementById("r-prob"),
+      getSRprob = document.getElementById("sr-prob"),
+      getSSRprob = document.getElementById("ssr-prob");
 
 const singleBtn = document.getElementById("single"),
       tenBtn = document.getElementById("ten");
 
 let gachaCount = 0;
+
+let rCount = 0,
+    srCount = 0,
+    ssrCount = 0;
 
 function runNum() {
   const r = Math.floor(Math.random() * 100) + 1;
@@ -21,7 +35,6 @@ const createDiv = num => {
   }
 }
 
-
 /*
 設定ガチャ排出率
 SSR = 3%
@@ -32,10 +45,11 @@ R   = 79%
 let gachas = [];
 let type;
 
+// ガチャ機能本体
 const Gacha = (num) => {
   // コンソールログをリセット
   console.clear();
-
+  // コメント表示
   console.log("--- " + (gachaCount + 1) + 0 + "連目 ---");
 
 
@@ -79,13 +93,16 @@ const Gacha = (num) => {
         gachas.push("SSR");
         getDiv.innerText = "SSR";
         getDiv.style.backgroundColor = "#dc143c";
+        ssrCount += 1;
       }else if (rNum > 79 && rNum < 98) {
         gachas.push("SR");
         getDiv.innerText = "SR";
         getDiv.style.backgroundColor = "orange";
+        srCount += 1;
       }else if (rNum < 80) {
         gachas.push("R");
         getDiv.innerText = "R";
+        rCount += 1;
       }
     }
 
@@ -95,14 +112,31 @@ const Gacha = (num) => {
         gachas.push("SSR");
         getDiv.innerText = "SSR";
         getDiv.style.backgroundColor = "#dc143c";
+        ssrCount += 1;
       }else if (rNum < 98) {
         gachas.push("SR");
         getDiv.innerText = "SR";
         getDiv.style.backgroundColor = "orange";
+        srCount += 1;
       }
     }
+
   }
-  gachaCount += 1;
+  gachaCount += num;
+
+  let rProb = rCount / gachaCount * 100,
+      srProb = srCount / gachaCount * 100,
+      ssrProb = ssrCount / gachaCount * 100;
+
+  getRcount.innerText = "R排出数 = " + rCount;
+  getSRcount.innerHTML = "SR排出数 = " + srCount;
+  getSSRcount.innerHTML = "SSR排出数 = " + ssrCount;
+
+  getRprob.innerHTML = "R排出率 = " + rProb.toFixed(2) + "%";
+  getSRprob.innerHTML = "SR排出率 = " + srProb.toFixed(2) + "%";
+  getSSRprob.innerHTML = "SSR排出率 = " + ssrProb.toFixed(2) + "%";
+
+  getCounter.innerHTML = "回転数 = " + gachaCount + "回";
 }
 
 tenBtn.onclick = () => {
